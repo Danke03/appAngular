@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { InfoPaginaService } from './services/info-pagina.service';
 import { ProductosService } from './services/productos.service';
 
@@ -10,12 +10,17 @@ import { ProductosService } from './services/productos.service';
 export class AppComponent {
   constructor(public _infoPagina: InfoPaginaService,
               public productosService: ProductosService){
-  
-    
+  }
+  public getScreenWidth: any;
+  public getScreenHeight: any;
 
-
-
-
-
+  ngOnInit(){
+    this.getScreenWidth = window.innerWidth;
+    this.getScreenHeight = window.innerHeight;
+  }
+  @HostListener('window:resize',['$event'])
+  onWindowResize(){
+    this.getScreenWidth = window.innerWidth;
+    this.getScreenHeight = window.innerHeight;
   }
 }
