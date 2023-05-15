@@ -8,6 +8,9 @@ import { ProductosService } from './services/productos.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   constructor(public _infoPagina: InfoPaginaService,
               public productosService: ProductosService){
   }
